@@ -9,7 +9,7 @@ class Person
     string name;
     int id;
     float salary;
-    
+
     public:
         Person()
         {
@@ -17,7 +17,7 @@ class Person
             id = -1;
             salary = -1.0;
         }
-        
+
         void setName(string name)
         {
             this->name = name;
@@ -65,11 +65,16 @@ int main()
     st.push(b);
     st.push(c);
 
-    while(!st.empty())
+/*  while(!st.empty())
     {
-        Person X;
-        X = st.pop();
-        X.print();
-    }
+        Person printObj;
+        printObj = st.pop();
+        printObj.print();
+    }*/
+    Person printObj;
+    printObj=st.Top();
+    printObj.print();
+    cout<< st.size()<<endl;
+    
     return 0;
 }
