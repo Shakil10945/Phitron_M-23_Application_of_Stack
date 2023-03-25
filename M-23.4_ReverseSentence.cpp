@@ -1,81 +1,34 @@
 #include<bits/stdc++.h>
 #include"TMyStack.h"
+
 using namespace std;
 
-int globalID = 100;
-
-class Person
+void reverseSentence(string chk)
 {
-    string name;
-    int id;
-    float salary;
-    
-    public:
-        Person()
-        {
-            name = "";
-            id = -1;
-            salary = -1.0;
-        }
-        
-        void setName(string name)
-        {
-            this->name = name;
-        }
-        void setSalary(float salary)
-        {
-            this->salary=salary;
-        }
+    Stack <string> st;
 
-        Person(string name, float salary)
-        {
-            setName(name);
-            setSalary(salary);
-            id=globalID;
-            globalID++;
-        }
+    for(int i=0;i<chk.length();i++)
+    {
+        string word = "";
 
-        int getID()
+        while(i<chk.length() && chk[i] != ' ')
         {
-            return id;
+            word+=chk[i];
+            cout<< chk[i]<<endl;
+            i++;
         }
-        string getName()
-        {
-            return name;
-        }
-        float getSalary()
-        {
-            return salary;
-        }
+        st.push(word);
+    }
 
-        void print()
-        {
-            cout<<name<<" | "<< id << " | "<<salary<<endl;
-        }
-};
-
+    while(!st.empty())
+    {
+        cout<< st.Top()<<" ";
+        st.pop();
+    }
+}
 int main()
 {
-    Stack <Person> st;
-    Person a("Shakil Khan", 8000);
-    Person b("Rifat Hasan", 9000);
-    Person c("Hasibul Hasan", 9500);
-
-    st.push(a);
-    st.push(b);
-    st.push(c);
-
- /*   while(!st.empty())
-    {
-        Person printObj;
-        printObj = st.pop();
-        printObj.print();
-    }
-    */
-   Person printObj;
-   printObj = st.Top();
-   printObj.print();
-   cout<< st.size()<<endl;
-   
+    string S = "I am Shakil Khan";
+    reverseSentence(S);
     return 0;
 }
